@@ -35,6 +35,16 @@ if (! file_exists ($file) || filemtime ($file) < time () - $appconf['Sitemap']['
 		unset ($events);
 	}
 
+	if (file_exists ('apps/wiki')) {
+		$wiki = Wiki::query ('id')
+			->order ('id asc')
+			->fetch_orig ();
+		foreach ($wiki as $page) {
+			$urls[] = sprintf ('/wiki/%s', $page->id);
+		}
+		unset ($wiki);
+	}
+
 	file_put_contents ($file, $tpl->render ('sitemap.xml/index', array ('urls' => $urls)));
 }
 
