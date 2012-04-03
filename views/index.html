@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% foreach urls %}
 	<url>
-		<loc>{{ loop_value }}</loc>
+		<loc>http://{{ $_SERVER.HTTP_HOST }}{{ loop_value }}</loc>
 	</url>
 {% end %}
 </urlset>
