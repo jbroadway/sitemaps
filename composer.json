@@ -1,5 +1,5 @@
 {
-    "name": "elefant/app-sitemaps.xml",
+    "name": "elefant/app-sitemap.xml",
     "type": "elefant-app",
     "description": "Google Sitemap generator app for the Elefant CMS",
     "keywords": ["google", "sitemap", "sitemaps", "generator", "elefant", "cms", "app"],
