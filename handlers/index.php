@@ -19,7 +19,7 @@ if (! file_exists ($file) || filemtime ($file) < time () - $appconf['Sitemap']['
 		->where ('published', 'yes')
 		->fetch_orig ();
 	foreach ($posts as $post) {
-		$urls[] = sprintf ('/blog/post/%d/%s', $post->id, blog_filter_title ($post->title));
+		$urls[] = sprintf ('/blog/post/%d/%s', $post->id, URLify::filter ($post->title));
 	}
 	unset ($posts);
 
@@ -30,7 +30,7 @@ if (! file_exists ($file) || filemtime ($file) < time () - $appconf['Sitemap']['
 			->where ('end_date <= "' . gmdate ('Y-m-t 23:59:59') . '"')
 			->fetch_orig ();
 		foreach ($events as $event) {
-			$urls[] = sprintf ('/events/%d/%s', $event->id, events_filter_title ($event->title));
+			$urls[] = sprintf ('/events/%d/%s', $event->id, URLify::filter ($event->title));
 		}
 		unset ($events);
 	}
